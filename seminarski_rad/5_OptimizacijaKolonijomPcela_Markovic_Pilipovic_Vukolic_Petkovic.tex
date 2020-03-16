@@ -76,7 +76,7 @@ Ovde ide uvod
 
 \section{Pčele i strategija}
 \label{subsec: ponasanje}
-Pčele se prema ulozi koje imaju dele na: matice, trutove i radilice. Pošto nama u algoritmu nije od značaja stvaranje pčela, akcenat se stavlja na treću vrstu – radilice. Postoje dva tipa radilica: ižviđači (engl. scout bees) i sakupljači (engl. forager bees). 
+Pčele se prema ulozi koje imaju dele na: matice, trutove i radilice. Kako autorima rada u algoritmu stvaranje pčela nije od značaja, akcenat se stavlja na treću vrstu – radilice. Postoje dva tipa radilica: ižviđači (engl. scout bees) i sakupljači (engl. forager bees). 
 
 \begin{figure}[h!]
 \begin{center}
@@ -112,9 +112,9 @@ Najsloženiji podatak je {\em smer}. Pčele koriste položaj Sunca, odnosno, uga
 \label{fig:pcela2}
 \end{figure}
 
-{\em Udaljenost} izvora se određuje na osnovu krive koju pčela izviđač opisuje prilikom plesa. Ako kruži, izvor se nalazi u radijusu od 50m. Ako je kriva u obliku znaka beskonačno, onda je izvor dalji od 150m; dok je u preostalim slučajevima izvor na udaljenosti između 50m i 150m.
+{\em Udaljenost} izvora se određuje na osnovu krive koju pčela izviđač opisuje prilikom plesa. Ako kruži, izvor se nalazi u radijusu od 50m. Ako je kriva u obliku znaka beskonačno, onda je izvor dalji od 150m; dok je u preostalim slučajevima izvor na udaljenosti između 50m i 150m\cite{plespcela}.
 
-Brzina i vreme trajanja plesa je proporcionalno oceni resursa pčele izviđača. Drugi izviđači takođe mogu opisivati isti izvor nektara. {\em Kvalitet} je veći što je veći broj pčela koje oglašavaju za jedan isti izvor, a samim tim sa njima će poći veći broj sakupljača.\cite{plespcela}. Dokle god se smatraju vrednim, izvori hrane će "reklamirati" pčele sakupljači kroz ples u košnici. Novi regruti mogu takođe učestvovati u plesu i na taj način pozivati što više novih pčela da se priključe sakupljanju. 
+Brzina i vreme trajanja plesa je proporcionalno oceni resursa pčele izviđača. Drugi izviđači takođe mogu opisivati isti izvor nektara. {\em Kvalitet} je veći što je veći broj pčela koje oglašavaju za jedan isti izvor, a samim tim sa njima će poći veći broj sakupljača\cite{bcoalg}. Dokle god se smatraju vrednim, izvori hrane će "reklamirati" pčele sakupljači kroz ples u košnici. Novi regruti mogu takođe učestvovati u plesu i na taj način pozivati što više novih pčela da se priključe sakupljanju. 
 
 
 
@@ -122,7 +122,7 @@ Brzina i vreme trajanja plesa je proporcionalno oceni resursa pčele izviđača.
 U periodu 1999-2003, srpski akademici - Panta Lučić i Dušan Teodorović, predstavili su osnovne koncepte optimizacije kolonijom pčela (engl. bee colony optimization, BCO) kroz sistem pčela (engl. bee system) dok su vršili istraživanja u {\em Virginia Tech}\cite{algoritam}. Optimizacija kolonijom pčela uvedena je 2005. godine kao metaheuristika za rešavanje problema uparivanja putovanja. Iste godine su Drias i
 Yahi modifikovali algoritam optimizacije rojem pčela (engl. bee swarm optimization) za
 problem MAX-W-SAT (engl. maximum weighted satisfiability problem). Takođe, D. T. Pham uvodi pčelinji algoritam (engl. bees algorithm) koji kombinuje
-pretraživanje susedstva i nasumično pretraživanje.\cite{istorijat} Dok računarski inženjer D. Karaboga uvodi algoritam optimizacije kolonijom pčela (engl. artificial bee colony, ABC) prvenstveno
+pretraživanje susedstva i nasumično pretraživanje.\cite{istorijat} Dok računarski inženjer D. Karaboga uvodi algoritam veštačke kolonije pčela (engl. artificial bee colony, ABC) prvenstveno
 namenjen numeričkoj optimizaciji.
 
 
@@ -136,7 +136,7 @@ Među najpoznatijim pčelinjim algoritmima nalazi se \textbf{BCO (engl. Bee Colo
 \label{subsec:bco}
 Optimizacija rojem pčela je zasnovana na analogiji između prirodnog ponašanja pčela u potrazi za nektarom i ponašanja optimizacionih algoritama u potrazi za optimumom\cite{bcoalg}. Ova metaheuristika je zasnovana na pretraživanju populacije. 
 
-Postoje 2 osnovna pristupa BCo algoritma:
+Postoje 2 osnovna pristupa BCO algoritma:
 \begin{itemize}\itemindent20pt%
 \setlength{\labelsep}{10pt}
 	\item Konstruktivni BCO - zasnovan na koracima izgradnje, gde pčele grade rešenje korak po korak
@@ -184,11 +184,11 @@ Populacija se sastoji od {\em B} veštačkih pčela. Svaka od njih zadužena je 
 
 Kod leta unapred, pčele pretražuju prostor pretrage. Postoji unapred definisani broj koraka koji izgrađuju i/ili poboljšavaju rešenje, koje onda postaje bolje rešenje. Zatim se započinje se s letom unazad.
 
-Kod leta unazad, svaka pčela deli informaciju o kvalitetu svog parcijalnog/celokupnog rešenja. Do optimalnog rešenja dolazi se izračunavanjem funkcije cilja za svako parcijalno/celokupno rešenje, što je analogno plesu pčela u prirodi. Nakon što su rešenja evaluirana, svaka pčela odlučuje (s određenom verovatnoćom) da li će ostati pri svom rešenju ili ne. Pčele koje su pronašle bolja rešenja imaju veće šanse da ih zadrže i reklamiraju. Za razliku od pčela u prirodi, u algoritmu - druge pčele će razmatrati rešenja kao potencijalno dobra, onih pčela koje su ostale verne svojim rešenjima. Kad god neka pčela odbaci svoje rešenje, mora da izabere jedno od reklamiranih rešenja. Pčela donosi odluku sa određenom verovatnoćom - tako da bolja rešenja imaju veće šanse da budu izabrana za naredne korake. Na ovaj način, pri svakom letu unazad, sve pčele se dele u dve grupe. Prvu grupu čine pčele regruteri {\em RE}, a drugu neopredeljene pčele {\em B - RE}. Vrednosti broja regrutera i neopredeljenih pčela se menjanju od iteracije do iteracije (jednog leta unazad do drugog leta unazad). 
+Kod leta unazad, svaka pčela deli informaciju o kvalitetu svog parcijalnog/celokupnog rešenja. Do optimalnog rešenja dolazi se izračunavanjem funkcije cilja za svako parcijalno/celokupno rešenje, što je analogno plesu pčela u prirodi. Nakon što su rešenja evaluirana, svaka pčela odlučuje (s određenom verovatnoćom) da li će ostati pri svom rešenju ili ne. Pčele koje su pronašle bolja rešenja imaju veće šanse da ih zadrže i reklamiraju. Za razliku od pčela u prirodi, u algoritmu - druge pčele će razmatrati rešenja kao potencijalno dobra, onih pčela koje su ostale verne svojim rešenjima. Kad god neka pčela odbaci svoje rešenje, mora da izabere jedno od reklamiranih rešenja. Pčela donosi odluku sa određenom verovatnoćom - tako da bolja rešenja imaju veće šanse da budu izabrana za naredne korake. Na ovaj način, pri svakom letu unazad, sve pčele se dele u dve grupe. Prvu grupu čine pčele regruteri {\em R}, a drugu neopredeljene pčele {\em B - R}. Vrednosti broja regrutera i neopredeljenih pčela se menjanju od iteracije do iteracije (jednog leta unazad do drugog leta unazad). 
 
 U narednom letu unapred, prema konstruktivnom BCO-u, svaka pčela dodaje novu komponentu na pre generisano delimično rešenje. Kod BCOi-a pčele menjaju delove celokupnog rešenja kako bi se postigla rešenja što većeg kvaliteta.
 
-Faze leta unapred i leta unazad se smenjuju {\em NC} puta, dok svaka pčela ne izgradi sopstveno rešenje ili ne uradi izmenu rešenja. {\em NC} je predstavlja parametar koji služi za definisanje učestalosti komunikacije između pčela. Kada se izvrši {\em NC} iteracija/koraka, određuje se najbolje rešenje od svih mogućih {\em B} rešenja. To rešenje se posle koristi pri ažuriranju globalno najboljeg rešenja. Ovime je iteracija algoritma gotova i brišu se svih {\em B} rešenja, te započinje nova iteracija.
+Faze leta unapred i leta unazad se smenjuju {\em N} puta, dok svaka pčela ne izgradi sopstveno rešenje ili ne uradi izmenu rešenja. {\em N} je predstavlja parametar koji služi za definisanje učestalosti komunikacije između pčela. Kada se izvrši {\em N} iteracija/koraka, određuje se najbolje rešenje od svih mogućih {\em B} rešenja. To rešenje se posle koristi pri ažuriranju globalno najboljeg rešenja. Ovime je iteracija algoritma gotova i brišu se svih {\em B} rešenja, te započinje nova iteracija.
 
 Sve dok kriterijum zaustavljanja nije ispunjen, vrše se iteracije. Mogući kriterijumi zaustavljanja mogu biti maksimalan/zadati broj iteracija ili maksimalan broj iteracija bez poboljšanja funkcije cilja.
 Najbolje pronađeno rešenje se daje kao konačno. To rešenje i globalno rešenje.
@@ -196,11 +196,20 @@ Najbolje pronađeno rešenje se daje kao konačno. To rešenje i globalno rešen
 \subsubsection{Lojalnost pčele}
 \label{subsubsec:lojalnost}
 
-Nakon završetka leta unapred, svaka pčela odlučuje da li će ostati verna prethodno pronađenom rešenju ili ne. Ova odluka zavisi od trenutnog kvaliteta rešenja pčele u odnosu na rešenja ostalih pčela. Verovatnoća da je pčela {\em i} lojalna svom prethodnom parcijalnom/celokupnom rešenju, na početku novog leta unapred, opisana je formulom:
+Nakon završetka leta unapred, svaka pčela odlučuje da li će ostati verna prethodno pronađenom rešenju ili ne. Ova odluka zavisi od trenutnog kvaliteta rešenja pčele u odnosu na rešenja ostalih pčela. Verovatnoća da je pčela {\em i} lojalna svom prethodnom parcijalnom/celokupnom rešenju, na početku novog leta unapred, opisana je formulom:\\
 
-*FORMULA*
+$p_i^{u+1}=e^{-\frac{O_{max}-O_i}{u}}$ \hfill (*)\\                             
 
-Lojalnost pčele zavisi od formule (*), kao i generatora slučajnih brojeva. Ako je slučajni broj manji od izračunate vrednosti, pčela ostaje pri svom rešenju. U suprotnom, neopredeljena je.
+$O_i$ - normalizovana vrednost funkcije parcijalnog/celokupnog rešenja
+\item $O_{max}$ - maksimalna vrednost svih normalizovanih
+\item u - brojač letova unapred (1, 2, ..., N)\\
+     U zavisnosti da li nam treba minimalna ili maksimalna funkcija, normalizacija 
+se izvodi na sledeći način:
+\item$O_i=\frac{C_{max}-C_i}{C_{max}-C_{min}}$ za minimizaciju\\
+\item$O_i=\frac{C_i-C_{max}}{C_{max}-C_{min}}$ za maksimizaciju\\
+gde $C_i$ označava ciljnu vrednost funkcije i-tog pčelinjeg rešenja. \\
+
+Lojalnost pčele zavisi od formule (*), kao i generatora slučajnih brojeva. Ako je slučajni broj manji od izračunate vrednosti, pčela ostaje pri svom rešenju. U suprotnom, neopredeljena je\cite{algoritam}.
 
 
 \subsubsection{Regrutacija}
@@ -208,9 +217,9 @@ Lojalnost pčele zavisi od formule (*), kao i generatora slučajnih brojeva. Ako
 
 Za svaku neopredeljenu pčelu, treba odrediti kog regruta će slediti. Pritom, uzima u obzir kvalitet reklamiranih rešenja. Verovatnoća da će i-to parcijalno/celokupno rešenje izabrati neopredeljene pčele je: \\
 
-$p_b = \frac{Q_b}{\sum_{k=1}^{RE}(Q_k)},	b = 1, 2, . . . RE$ \\
+$p_i = \frac{Q_i}{\sum_{k=1}^{R}(Q_k)},	i = 1, 2, . . . R$ \\
 
-Gde je {\em Qk} normalizovana vrednost funkcije cilja k-tog reklamiranog rešenja. {\em RE} je broj regrutera. Svaka neopredeljena pčela se pridružuje jednom od regrutera preko ruleta.
+Gde je {\em $Q_k$} normalizovana vrednost funkcije cilja k-tog reklamiranog rešenja. {\em R} je broj regrutera. Svaka neopredeljena pčela se pridružuje jednom od regrutera preko ruleta.
 
 
 \section{Primene algoritma}
