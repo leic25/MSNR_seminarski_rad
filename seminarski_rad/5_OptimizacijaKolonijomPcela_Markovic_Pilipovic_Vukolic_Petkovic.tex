@@ -56,7 +56,7 @@
 
 \title{Optimizacija kolonijom pčela\\ \small{Seminarski rad u okviru kursa\\Metodologija stručnog i naučnog rada\\ Matematički fakultet}}
 
-\author{Maja Vukolić, Marija Marković, Lea Petković, Marina Pilipović\\ majamejl@gmail.com, markovic.n.maja@gmail.com,\\
+\author{Maja Vukolić, Marija Marković, Lea Petković, Marina Pilipović\\ vukolic.maja97@gmail.com, markovic.n.maja@gmail.com,\\
 lea.bela.97@gmail.com, marinamejl@gmail.com}
 
 %\date{9.~april 2015.}
@@ -71,7 +71,14 @@ U ovom tekstu je ukratko prikazana osnovna forma seminarskog rada.
 
 \section{Uvod}
 \label{sec:uvod}
-Ovde ide uvod
+Priroda je inspirisala mnoštvo naučnih istraživanja, a i dalje je ostalo dosta toga neistraženog. Danas, većina novih algoritama inspirisana su prirodnim procesima, razvijeni tako što crpe inspiraciju iz prirode.
+
+Među ovakvim algoritmima, specijalnu klasu algoritama predstavljaju oni koji su razvijeni tako što su inspirisani inteligencijom roja (eng. swarm intelligence). Bonabeau je definisao inteligenciju roja kao "svaki pokušaj dizajniranja algoritama ili distribuiranih uređaja za rešavanje problema inspirisanih kolektivnim ponašanjem društvenih kolonija insekata i drugih društava životinja"\cite{uvod}. Pojam "roj" se odnosi na bilo kakvu suzdržanu zbirku interaktivnih agenata ili pojedinaca.
+Klasičan primer roja su pčele koje se kreću oko svoje košnice. Ipak, metafora se lako može proširiti na druge sisteme sa sličnom arhitekturom (kolonija mrava se može smatrati rojem čiji su pojedini agensi mravi, slično i za jato ptica). Ovakvi algoritmi, oni koji su zasnovani na inteligenciji roja, su najpopularniji, a njihovi najpoznatiji predstavnici su: Optimizacija mravljim kolonijama {\em(eng. Ant Colony Optimization, ACO)}, optimizacija kolonijom pčela {\em(eng. Bee Colony Optimization, BCO)}, optimizacija rojevima čestica {\em(eng. Particle Swarm Optimization, PSO)}.
+Ideja, koja se koristi, je uzeti primer iz prirode, odabrati ključne komponente koje su zaslužne za njegovu uspešnost, i na osnovu toga stvoriti model koji je prilagođen računaru i potrebama naših zadataka. U nastavku ćemo ovakav postupak primeniti nad pčelama.
+
+U ovom radu se daje kartak teorijski uvod u pčelinji algoritam (eng. Bees algorithm) opisan u poglavlju 2. U poglavlju 3 je dat kratak osvrt na to kako se modifikovao algoritam optimizacije rojem pčela za različite svrhe.
+Izvedeno programsko rešenje opisano je u poglavlju 4, dok su u poglavlju 5 dati primeri primena ovog algoritma na realne probleme.
 
 
 \section{Pčele i strategija}
@@ -244,10 +251,11 @@ Ovaj algoritam našao je mnoge primene u inžinjerstvu:
 
 \section{Zaključak}
 \label{sec:zakljucak}
+Optimizacija kolonije pčela je metaheuristička metoda inspirisana ponašanjem pčela i najmlađa tehnika inteligencije roja. Predstavlja opšti algoritam koji se može primeniti na različite probleme optimizacije u upravljanju, inženjeringu i kontroli. Ovaj opšti algoritam uvek mora da bude prilagođen za određeni problem. Pristup BCO zasnovan je na konceptu saradnje, koja omogućava veštačkim pčelama da budu efikasnije i da postižu ciljeve koje ne bi mogle pojedinačno da postignu. BCO ima mogućnost da putem razmene informacija i regrutovanja intenzivnije vrši pretragu u onim regionima prostora rešenja koji više obećavaju. BCO nije široko korišćen za rešavanje stvarnih problema. U ovom trenutku nema teorijskih rezultata koji bi mogli podržati koncepte BCO. Obično je razvoj različitih pristupa inteligenciji roja zasnovan na eksperimentalnom radu u početnoj fazi. Dobri eksperimentalni rezultati trebalo bi da motivišu istraživače da pokušaju da proizvedu neke teorijske rezultate u budućem istraživanju. 
 
-Ovde pišete zaključak. 
+Preliminarni rezultati su pokazali da razvoj novih modela zasnovanih na principima BCO (autonomija, distribuirano funkcionisanje, samoorganizovanje) verovatno može značajno doprineti rešavanju složenih problema inženjeringa, upravljanja i kontrole. U narednim godinama može se očekivati više modela zasnovanih na BCO-u. Najvažniji aspekt budućeg istraživanja je matematičko opravdanje tehnike BCO. Ostali zanimljivi aspekti budućeg istraživanja mogu biti homogenost pčela (homogena nasuprot heterogenim veštačkim pčelama), različiti mehanizmi razmene informacija i različiti mehanizmi saradnje\cite{bcoalg}. 
 
-
+\newpage
 \addcontentsline{toc}{section}{Literatura}
 \appendix
 \bibliography{seminarski} 
