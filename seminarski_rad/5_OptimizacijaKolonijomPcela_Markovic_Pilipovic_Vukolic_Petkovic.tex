@@ -96,7 +96,7 @@ Pčele se prema ulozi koje imaju dele na: matice, trutove i radilice. Kako autor
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.07]{Honey_Bee_takes_Nectar.jpg}
+\includegraphics[scale=0.05]{Honey_Bee_takes_Nectar.jpg}
 \end{center}
 \caption{Pčela ,,sakupljač'' prilikom sakupljanja nektara.}
 
@@ -110,7 +110,7 @@ Prirodno se nameće da je broj sakupljača mnogo veći od broja izviđača. Saku
 \subsection{Pčelinji ples}
 \label{subsec:pcelinji ples}
 
-	Nemački zoolog Karl Von Frisch je 1973. otkrio da pčele među sobom komuniciraju plesom (engl. waggle dance). Na tkzv. ,,plesnom podijumu'' u košnici izviđači prenose poruku u dve faze:
+Nemački zoolog Karl Von Frisch je 1973. otkrio da pčele među sobom komuniciraju plesom (engl. waggle dance). Na tkzv. ,,plesnom podijumu'' u košnici izviđači prenose poruku u dve faze:
 \begin{itemize}\itemindent50pt%
 \setlength{\labelsep}{10pt}
 	\item migoljenje
@@ -122,7 +122,7 @@ Najsloženiji podatak je {\em smer}. Pčele koriste položaj Sunca, odnosno, uga
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.45]{waggle_dance.png}
+\includegraphics[scale=0.35]{waggle_dance.png}
 \end{center}
 \caption{Ples pčele koji vrši u košnici, kako bi ukazala drugim pčelama na smer i udaljenost izvora hrane.}
 \label{fig:pcela2}
@@ -131,7 +131,6 @@ Najsloženiji podatak je {\em smer}. Pčele koriste položaj Sunca, odnosno, uga
 {\em Udaljenost} izvora se određuje na osnovu krive koju pčela izviđač opisuje prilikom plesa. Ako kruži, izvor se nalazi u radijusu od 50m. Ako je kriva u obliku znaka beskonačno, onda je izvor dalji od 150m; dok je u preostalim slučajevima izvor na udaljenosti između 50m i 150m\cite{plespcela}.
 
 Brzina i vreme trajanja plesa je proporcionalno oceni resursa pčele izviđača. Drugi izviđači takođe mogu opisivati isti izvor nektara. {\em Kvalitet} je veći što je veći broj pčela koje oglašavaju za jedan isti izvor, a samim tim sa njima će poći veći broj sakupljača\cite{bcoalg}. Dokle god se smatraju vrednim, izvori hrane će "reklamirati" pčele sakupljači kroz ples u košnici. Novi regruti mogu takođe učestvovati u plesu i na taj način pozivati što više novih pčela da se priključe sakupljanju. 
-
 
 
 \section{Istorija algoritma}
@@ -249,7 +248,24 @@ Ovaj algoritam našao je mnoge primene u inžinjerstvu:
 	\item{Ostali problemi optimizacije}
 	\item{Više-objektivna optimizacija}
 \end{itemize}
+U narednoj tabeli su nabrojani problemi koje su naučnici rešavali pomoću optimizacije kolonijom pčela.
 
+\begin{center}
+\begin{tabular}{|p{1cm}|p{3cm}|p{5cm}|}
+ \hline
+Godina & Autori & Primena \\ \hline
+2001, 2002, 2003&Lučić i Teodorović&Problem trgovačkog putnika\\ \hline
+2003&Lučić i Teodorović&Problem sa usmeravanjem vozila u slučaju nesigurne potražnje\\ \hline
+2005&Teodorović i Dell’ Orco&Problem usklađivanja vožnje\\ \hline
+2006&Teodorović, Lučić, Marković, Dell’ Orco & Problem trgovačkog putnika i problemi sa usmeravanjem mreža\\ \hline
+2007&Marković, Teodorović i Aćimović-Raspopović & Usmeravanje i dodela talasne dužine svim optičkim mrežama\\ \hline
+2007& Teodorović i Šelmić & Problem p-medijane\\ \hline
+2008& Teodorović & Poređenje performansi BCO algoritma sa performansama drugih algoritama zasnovanih na inteligenciji roja\\ \hline
+2009& Davidović, Teodorović i Šelmić & Statičko zakazivanje nezavisnih zadataka kod homogenih višeprocesorskih sistema\\ \hline
+\end{tabular}\par
+\bigskip
+Tabela 1: Primene BCO algoritma od 2001. do 2009. godine
+\end{center}
 
 \subsection{Prva primena}
 \label{subsec:prvaprimena}
@@ -262,9 +278,6 @@ Ovaj algoritam našao je mnoge primene u inžinjerstvu:
 \label{sec:zakljucak}
 Optimizacija kolonijom pčela je metaheuristička metoda inspirisana ponašanjem pčela, kao i najmlađa tehnika koja koristi inteligenciju roja. Predstavljen je opšti algoritam koji se, uz određene mofikacije, može prilagoditi za različite probleme optimizacije u upravljanju, inženjeringu i/ili kontroli. BCO ima mogućnost da, putem razmene informacija i regrutovanja, intenzivnije vrši pretragu u onim regionima prostora rešenja koji više obećavaju. Ipak, BCO nije široko korišćen za rešavanje stvarnih problema.
 
-{\em U ovom trenutku nema teorijskih rezultata koji bi mogli podržati koncepte BCO. Obično je razvoj različitih pristupa inteligenciji roja zasnovan na eksperimentalnom radu u početnoj fazi. Dobri eksperimentalni rezultati trebalo bi da motivišu istraživače da pokušaju da proizvedu neke teorijske rezultate u budućem istraživanju. 
-
-Preliminarni rezultati su pokazali da razvoj novih modela zasnovanih na principima BCO (autonomija, distribuirano funkcionisanje, samoorganizovanje) verovatno može značajno doprineti rešavanju složenih problema inženjeringa, upravljanja i kontrole. U narednim godinama može se očekivati više modela zasnovanih na BCO-u. Najvažniji aspekt budućeg istraživanja je matematičko opravdanje tehnike BCO. Ostali zanimljivi aspekti budućeg istraživanja mogu biti homogenost pčela (homogena nasuprot heterogenim veštačkim pčelama), različiti mehanizmi razmene informacija i različiti mehanizmi saradnje\cite{bcoalg}. }
 
 \newpage
 \addcontentsline{toc}{section}{Literatura}
