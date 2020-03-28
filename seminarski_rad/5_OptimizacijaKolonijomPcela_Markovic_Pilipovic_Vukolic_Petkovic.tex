@@ -57,7 +57,7 @@
 \title{Optimizacija kolonijom pčela\\ \small{Seminarski rad u okviru kursa\\Metodologija stručnog i naučnog rada\\ Matematički fakultet}}
 
 \author{Maja Vukolić, Marija Marković, Lea Petković, Marina Pilipović\\ vukolic.maja97@gmail.com, markovic.n.maja@gmail.com,\\
-lea.bela.97@gmail.com, marinamejl@gmail.com}
+lea.bela.97@gmail.com, beka.pilipovic@gmail.com}
 
 %\date{9.~april 2015.}
 
@@ -96,7 +96,7 @@ Pčele se prema ulozi koje imaju dele na: matice, trutove i radilice. Kako autor
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.05]{Honey_Bee_takes_Nectar.jpg}
+\includegraphics[scale=0.055]{Honey_Bee_takes_Nectar.jpg}
 \end{center}
 \caption{Pčela ,,sakupljač'' prilikom sakupljanja nektara.}
 
@@ -132,7 +132,6 @@ Najsloženiji podatak je {\em smer}. Pčele koriste položaj Sunca, odnosno, uga
 
 Brzina i vreme trajanja plesa je proporcionalno oceni resursa pčele izviđača. Drugi izviđači takođe mogu opisivati isti izvor nektara. {\em Kvalitet} je veći što je veći broj pčela koje oglašavaju za jedan isti izvor, a samim tim sa njima će poći veći broj sakupljača\cite{bcoalg}. Dokle god se smatraju vrednim, izvori hrane će "reklamirati" pčele sakupljači kroz ples u košnici. Novi regruti mogu takođe učestvovati u plesu i na taj način pozivati što više novih pčela da se priključe sakupljanju. 
 
-
 \section{Istorija algoritma}
 U periodu 1999-2003, srpski akademici - Panta Lučić i Dušan Teodorović, predstavili su osnovne koncepte optimizacije kolonijom pčela (engl. bee colony optimization, BCO) kroz sistem pčela (engl. bee system) dok su vršili istraživanja u {\em Virginia Tech}\cite{algoritam}. Optimizacija kolonijom pčela uvedena je 2005. godine kao metaheuristika za rešavanje problema uparivanja putovanja. Iste godine su Drias i
 Yahi modifikovali algoritam optimizacije rojem pčela (engl. bee swarm optimization) za
@@ -143,9 +142,18 @@ namenjen numeričkoj optimizaciji.
 
 \section{Pčelinji algoritam}
 Pčelinji algoritam je metod pretrage koji oponaša kolonije pčela prilikom potrage za hranom\cite{sajt_algoritma}. Profesor D. T. Pham, zajedno sa svojim saradnicima, je napravio i opisao algoritam 2005. godine.
-U svojoj osnovnoj verziji izvršava pretraživanje susedstva u kombinaciji sa globalnim pretraživanjem, i može se upotrebiti i za kombinatornu i za kontinuiranu optimizaciju. Koristi populaciju ageansa, odnosno veštačkih pčela, kako bi uzorkovao prostor rešenja. Pčele izviđači nasumično traže regione visoke funkcije prilagođenosti (globalna pretraga). Najuspešniji izviđači regrutuju promenljiv broj pčela koje tragaju za hranom kako bi pretraživali u okolini najboljih rešenja (lokalna pretraga).
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.29]{dijagram.png}
+\end{center}
+\caption{Dijagram sa koracima opšteg pčelinjeg algoritma.}
+\label{fig:dij}
+\end{figure}
+U svojoj osnovnoj verziji izvršava pretraživanje susedstva u kombinaciji sa globalnim pretraživanjem, i može se upotrebiti i za kombinatornu i za kontinuiranu optimizaciju. Koristi populaciju ageansa, odnosno veštačkih pčela, kako bi uzorkovao prostor rešenja\cite{bcoalg}. Pčele izviđači nasumično traže regione visoke funkcije prilagođenosti (globalna pretraga). Najuspešniji izviđači regrutuju promenljiv broj pčela koje tragaju za hranom kako bi pretraživali u okolini najboljih rešenja (lokalna pretraga).
 Ciklusi globalne i lokalne pretrage ponavljaju se dok se ne otkrije prihvatljivo rešenje ili ne prođe određeni broj iteracija. Efikasnost ovog algoritma se pokazala u mnogim istraživanjima. 
 Među najpoznatijim pčelinjim algoritmima nalazi se \textbf{BCO (engl. Bee Colony Optimization)}.
+Osnovni koraci dati su dijagramom na slici \ref{fig:dij}.
 
 \subsection{BCO algoritam}
 \label{subsec:bco}
@@ -195,7 +203,7 @@ do:
 while (nije zadovoljen kriterijum)
 \end{lstlisting}
 
-Populacija se sastoji od {\em B} veštačkih pčela. Svaka od njih zadužena je za proizvodnju jednog rešenja. Različite putanje koje pčele prelaze predstavljaju različita rešenja. Algoritam ima dve faze - \textbf{let unapred} i \textbf{let unazad}. Navedene faze dešavaju se naizmenično.
+Populacija se sastoji od {\em B} veštačkih pčela. Svaka od njih zadužena je za proizvodnju jednog rešenja. Različite putanje koje pčele prelaze predstavljaju različita rešenja. Algoritam ima dve faze - \textbf{let unapred} i \textbf{let unazad}. Navedene faze dešavaju se naizmenično\cite{algoritam}.
 
 Kod leta unapred, pčele pretražuju prostor pretrage. Postoji unapred definisani broj koraka koji izgrađuju i/ili poboljšavaju rešenje, koje onda postaje bolje rešenje. Zatim se započinje se s letom unazad.
 
@@ -203,7 +211,7 @@ Kod leta unazad, svaka pčela deli informaciju o kvalitetu svog parcijalnog/celo
 
 U narednom letu unapred, prema konstruktivnom BCO-u, svaka pčela dodaje novu komponentu na pre generisano delimično rešenje. Kod BCOi-a pčele menjaju delove celokupnog rešenja kako bi se postigla rešenja što većeg kvaliteta.
 
-Faze leta unapred i leta unazad se smenjuju {\em N} puta, dok svaka pčela ne izgradi sopstveno rešenje ili ne uradi izmenu rešenja. {\em N} je predstavlja parametar koji služi za definisanje učestalosti komunikacije između pčela. Kada se izvrši {\em N} iteracija/koraka, određuje se najbolje rešenje od svih mogućih {\em B} rešenja. To rešenje se posle koristi pri ažuriranju globalno najboljeg rešenja. Ovime je iteracija algoritma gotova i brišu se svih {\em B} rešenja, te započinje nova iteracija.
+Faze leta unapred i leta unazad se smenjuju {\em N} puta, dok svaka pčela ne izgradi sopstveno rešenje ili ne uradi izmenu rešenja. {\em N} je predstavlja parametar koji služi za definisanje učestalosti komunikacije između pčela. Kada se izvrši {\em N} iteracija/koraka, određuje se najbolje rešenje od svih mogućih {\em B} rešenja. To rešenje se posle koristi pri ažuriranju globalno najboljeg rešenja. Ovime je iteracija algoritma gotova i brišu se svih {\em B} rešenja, te započinje nova iteracija\cite{bcoalg}.
 
 Sve dok kriterijum zaustavljanja nije ispunjen, vrše se iteracije. Mogući kriterijumi zaustavljanja mogu biti maksimalan/zadati broj iteracija ili maksimalan broj iteracija bez poboljšanja funkcije cilja.
 Najbolje pronađeno rešenje se daje kao konačno. To rešenje i globalno rešenje.
@@ -234,20 +242,11 @@ Za svaku neopredeljenu pčelu, treba odrediti kog regruta će slediti. Pritom, u
 
 $p_i = \frac{Q_i}{\sum_{k=1}^{R}(Q_k)},	i = 1, 2, . . . R$ \\
 
-Gde je {\em $Q_k$} normalizovana vrednost funkcije cilja k-tog reklamiranog rešenja. {\em R} je broj regrutera. Svaka neopredeljena pčela se pridružuje jednom od regrutera preko ruleta.
+Gde je {\em $Q_k$} normalizovana vrednost funkcije cilja k-tog reklamiranog rešenja. {\em R} je broj regrutera. Svaka neopredeljena pčela se pridružuje jednom od regrutera preko ruleta\cite{bcoalg}.
 
 
 \section{Primene algoritma}
-Ovaj algoritam našao je mnoge primene u inžinjerstvu:
-
-\begin{itemize}
-	\item{Optimizacija klaster sistema}
-	\item{Manufaktura} 
-	\item{Upravljanje}
-	\item{Bioinžinjering}
-	\item{Ostali problemi optimizacije}
-	\item{Više-objektivna optimizacija}
-\end{itemize}
+Ovaj algoritam našao je mnoge primene u inžinjerstvu: optimizacija klaster sistema, manufaktura, upravljanje, bioinžinjering, mnogi problemi optimizacije itd.
 U narednoj tabeli su nabrojani problemi koje su naučnici rešavali pomoću optimizacije kolonijom pčela.
 
 \begin{center}
@@ -256,7 +255,7 @@ U narednoj tabeli su nabrojani problemi koje su naučnici rešavali pomoću opti
 Godina & Autori & Primena \\ \hline
 2001, 2002, 2003&Lučić i Teodorović&Problem trgovačkog putnika\\ \hline
 2003&Lučić i Teodorović&Problem sa usmeravanjem vozila u slučaju nesigurne potražnje\\ \hline
-2005&Teodorović i Dell’ Orco&Problem usklađivanja vožnje\\ \hline
+2005&Teodorović i Dell’ Orco&Problem deljenja vozila\\ \hline
 2006&Teodorović, Lučić, Marković, Dell’ Orco & Problem trgovačkog putnika i problemi sa usmeravanjem mreža\\ \hline
 2007&Marković, Teodorović i Aćimović-Raspopović & Usmeravanje i dodela talasne dužine svim optičkim mrežama\\ \hline
 2007& Teodorović i Šelmić & Problem p-medijane\\ \hline
@@ -267,17 +266,52 @@ Godina & Autori & Primena \\ \hline
 Tabela 1: Primene BCO algoritma od 2001. do 2009. godine
 \end{center}
 
-\subsection{Prva primena}
+\subsection{Problem trgovačkog putnika}
 \label{subsec:prvaprimena}
+U postavci ovog problema dato je {\em n} gradova i potrebno ih je sve obići, tako da ni u koji grad ne dođemo dva puta, a da dužina ukupnog puta bude što manja. Lučić i Teodorović su ovo pokušali da reše koristeći metod optimizacije kolonijom pčela. Oni su testirali optimizaciju na velikom broju dobro poznatih testova za testiranje performansi {\em (engl. test benches)} kao što su {\em Eil21, BerlinS2, St70} itd\cite{test}. Rezultati testiranja su prikazani u sledećoj tabeli: 
 
-\subsection{Druga primena}
+\begin{center}
+\begin{tabular}{|p{1.2cm}|p{2cm}|p{2cm}|p{1.4cm}|p{1cm}|}
+ \hline
+Test & Optimalna vrednost(O) & Najbolja postignuta vrednost pomoću BCO algoritma(B)& (B-O)/O (\%) &CPU (s) \\ \hline
+Eil51&428.87&428.87&0&29\\ \hline
+Berlin52&7544.366&7544.366&0&0\\ \hline
+St70&677.11&677.11&0&7\\ \hline
+Pr76&108159&108159&0&2\\ \hline
+Kroa100&21285.4&21285.4&0&10\\ \hline
+Eil101&640.21&640.21&0&61\\ \hline
+Tsp225&3859&3899.9&1.06\%&11651\\ \hline
+A280&2586.77&2608.33&0.83\%&6270\\ \hline
+Pcb442&50783.55&51366.04&1.15\%&4384\\ \hline
+Prl1002&259066.6&267340.7&3.19\%&28101\\ \hline
+\end{tabular}\par
+\bigskip
+Tabela 2: Vrednosti dobijene primenom algoritma
+\end{center}
+Iz tabele može se videti da su najbolje vrednosti, dobijene BCO algoritmom, približne optimalnim vrednostima, kao i da je vreme rada procesora malo. Stoga, može se zaključiti da je BCO dao kvaltetne rezultate.
+
+\subsection{Problem deljenja vozila}
 \label{subsec:drugaprimena}
+Današnji saobraćaj je veoma zagušen zbog neprestane gradnje novih puteva i novih račvanja. To doprinosi većem broju kašnjenja, dužem putovanju, velikom broju zaustavljanja i povećanju zagađenosti vazduha u gradovima. Zato je bitno pametno iskoristiti postojeće puteve. 
 
+Deljenje vožnje {\em(engl. ride-sharing)} je jedna od korišćenijih TDM {\em (engl. Travel Demand Management)} tehnika. U okviru ovog koncepta dve ili više osoba dele isto vozilo kako bi stigli do svojih destinacija. Prevoznik mora da poseduje sledeće informacije kako bi dobro isplanirao put:
+\begin{itemize}\itemindent20pt%
+\setlength{\labelsep}{10pt}
+       \item kapacitet vozila (broj ljudi u vozilu)
+       \item dani u nedelji, kada je osoba spremna da učestvuje u deljenju vozila
+       \item mesto odakle se kreće za svaki dan u nedelji
+       \item krajnja destinacija za svaki dan u nedelji
+       \item vreme željenog polaska i/ili dolaska za svaki dan u nedelji 
+\end{itemize}
+
+Teodorović i Dell’ Orco želeli su da osmisle rutu i raspored vozila i putnika za celu nedelju, tako da se ukupna dužina putovanja za sve učesnike bude minimalna. Razvili su model koji se oslanja na BCO.
+Ovaj model testiran je na uzorku vozila koja su kretali iz malog grada u Italiji - Trane, do mesta Bari. Učestvovalo je 97 putnika. Kapacitet svakog vozila bio je 4 putnika.
+
+U ovom slučaju, algoritam je odredio da 96 (= 24*4) od 97 putnika daju najbolju putanju. Ne postoji standardni metod u literaturi za određivanje najbolje metode za optimalno deljenje vožnje. Ovo je bio samo pokušaj da se razvije metodologija koja bi mogla da reši ovaj problem\cite{voznja}.
 
 \section{Zaključak}
 \label{sec:zakljucak}
 Optimizacija kolonijom pčela je metaheuristička metoda inspirisana ponašanjem pčela, kao i najmlađa tehnika koja koristi inteligenciju roja. Predstavljen je opšti algoritam koji se, uz određene mofikacije, može prilagoditi za različite probleme optimizacije u upravljanju, inženjeringu i/ili kontroli. BCO ima mogućnost da, putem razmene informacija i regrutovanja, intenzivnije vrši pretragu u onim regionima prostora rešenja koji više obećavaju. Ipak, BCO nije široko korišćen za rešavanje stvarnih problema.
-
 
 \newpage
 \addcontentsline{toc}{section}{Literatura}
