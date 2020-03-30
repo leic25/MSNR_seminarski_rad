@@ -66,7 +66,7 @@ lea.bela.97@gmail.com, beka.pilipovic@gmail.com}
 \maketitle
 
 \abstract{
-U ovom tekstu je ukratko prikazana osnovna forma seminarskog rada. 
+Način kretanja insekata i njihovo zujanje čoveku je zanimljivo za posmatranje od malih nogu. Insekti su vremenom našli nacin da dođu do hrane brže i efikasnije, a čovek je došao na ideju da njihovo kretanje pretvori u algoritam koji mu može pomoći za rešavanje mnogih problema. U ovom radu videćemo kojim to insektima je čovek bio inspirisan i zbog čega su pčele upravo te koje su privlačile pažnju eksperata. Iz posmatranja roja pčela nastao je algoritam optimizacije kolonijom pčela (BCO), najpoznatiji pčelinji algoritam. Način komunikacije između pčela je posebno zanimljiv, ali i ključan za optimizaciju puta pčela do nektara. Ovaj algoritam iskorićen je u potpunosti ili modifikovan za rešavanje mnogih problema. Neki od tih problema, kao sto su problem trgovačkog putnika i problem deljenja vozila, obrađeni su u ovom radu.
 \tableofcontents
 
 \newpage
@@ -154,7 +154,7 @@ Pčelinji algoritam je metod pretrage koji oponaša kolonije pčela prilikom pot
 \end{figure}
 U svojoj osnovnoj verziji izvršava pretraživanje susedstva u kombinaciji sa globalnim pretraživanjem, i može se upotrebiti i za kombinatornu i za kontinuiranu optimizaciju. Koristi populaciju ageansa, odnosno veštačkih pčela, kako bi uzorkovao prostor rešenja\cite{bcoalg}. Pčele izviđači nasumično traže regione visoke funkcije prilagođenosti (globalna pretraga). Najuspešniji izviđači regrutuju promenljiv broj pčela koje tragaju za hranom kako bi pretraživali u okolini najboljih rešenja (lokalna pretraga).
 Ciklusi globalne i lokalne pretrage ponavljaju se dok se ne otkrije prihvatljivo rešenje ili ne prođe određeni broj iteracija. Efikasnost ovog algoritma se pokazala u mnogim istraživanjima. 
-Među najpoznatijim pčelinjim algoritmima nalazi se \textbf{BCO (engl. Bee Colony Optimization)}.
+Među najpoznatijim pčelinjim algoritmima za optimizacione probleme, nalazi se \textbf{BCO (engl. Bee Colony Optimization)}.
 Osnovni koraci dati su dijagramom na slici \ref{fig:dij}.
 
 \subsection{BCO algoritam}
@@ -211,7 +211,7 @@ Kod leta unazad, svaka pčela deli informaciju o kvalitetu svog parcijalnog/celo
 
 U narednom letu unapred, prema konstruktivnom BCO-u, svaka pčela dodaje novu komponentu na pre generisano delimično rešenje. Kod BCOi-a pčele menjaju delove celokupnog rešenja kako bi se postigla rešenja što većeg kvaliteta\cite{bcoalg}.
 
-Faze leta unapred i leta unazad se smenjuju {\em N} puta, dok svaka pčela ne izgradi sopstveno rešenje ili ne uradi izmenu rešenja. {\em N} je predstavlja parametar koji služi za definisanje učestalosti komunikacije između pčela. Kada se izvrši {\em N} iteracija/koraka, određuje se najbolje rešenje od svih mogućih {\em B} rešenja. To rešenje se posle koristi pri ažuriranju globalno najboljeg rešenja. Ovime je iteracija algoritma gotova i brišu se svih {\em B} rešenja, te započinje nova iteracija\cite{bcoalg}.
+Faze leta unapred i leta unazad se smenjuju {\em N} puta, dok svaka pčela ne izgradi sopstveno rešenje ili ne uradi izmenu rešenja. {\em N} predstavlja parametar koji služi za definisanje učestalosti komunikacije između pčela. Kada se izvrši {\em N} iteracija/koraka, određuje se najbolje rešenje od svih mogućih {\em B} rešenja. To rešenje se posle koristi pri ažuriranju globalno najboljeg rešenja. Ovime je iteracija algoritma gotova i brišu se svih {\em B} rešenja, te započinje nova iteracija\cite{bcoalg}.
 
 Sve dok kriterijum zaustavljanja nije ispunjen, vrše se iteracije. Mogući kriterijumi zaustavljanja mogu biti maksimalan/zadati broj iteracija ili maksimalan broj iteracija bez poboljšanja funkcije cilja.
 Najbolje pronađeno rešenje se daje kao konačno. To rešenje i globalno rešenje.
