@@ -16,6 +16,8 @@
 \usepackage{listings}
 \usepackage{verbatimbox,lipsum}
 
+\usepackage{xurl}
+
 %\newtheorem{primer}{Пример}[section] %ćirilični primer
 \newtheorem{primer}{Primer}[section]
 
@@ -77,22 +79,22 @@ Priroda je poslužila kao nadahnuće za mnoštvo naučnih istraživanja. Pored o
 \subsection{Inteligencija roja}
 \label{subsec: inteligencija}
 
-Specijalnu klasu ovakvih algoritama predstavljaju oni koji počivaju na inteligenciji roja (engl. Swarm intelligence, SI). Jedan od vodećih eksperata, Eric Bonabeau, definisao je inteligenciju roja kao {\em svaki pokušaj dizajniranja algoritama ili distribuiranih uređaja za rešavanje problema, inspirisanih kolektivnim ponašanjem društvenih kolonija insekata i drugih društava životinja.}\cite{uvod} Pojam {\em roj} odnosi se na bilo kakvu skupinu interaktivnih agenata/pojedinaca. Primer roja su pčele. Metafora se lako može proširiti na druge (slične) sisteme: kolonija mrava može se smatrati rojem čiji su agensi mravi; a slično važi za jato ptica. 
+Specijalnu klasu ovakvih algoritama predstavljaju oni koji počivaju na \textbf{inteligenciji roja (engl. Swarm intelligence, SI)}. Jedan od vodećih eksperata, Eric Bonabeau, definisao je inteligenciju roja kao {\em ,,svaki pokušaj dizajniranja algoritama ili distribuiranih uređaja za rešavanje problema, inspirisanih kolektivnim ponašanjem društvenih kolonija insekata i drugih društava životinja.''}\cite{uvod} Pojam {\em roj} odnosi se na bilo kakvu skupinu interaktivnih agenata/pojedinaca. Primer roja su pčele. Metafora se lako može proširiti na druge (slične) sisteme: kolonija mrava može se smatrati rojem čiji su agensi mravi; a slično važi za jato ptica. 
 Neki algoritmi koji se zasnivaju na inteligenciji roja, odnosno - ponašanju pojedinačnih jedinki unutar određene grupe, su:
 \begin{itemize}\itemindent20pt%
 \setlength{\labelsep}{10pt}
-	\item Optimizacija rojevima čestica {\em(eng. Particle Swarm Optimization, PSO)},
+	\item Optimizacija rojevima čestica {\em(engl. Particle Swarm Optimization, PSO)},
  	\item Optimizacija mravljim kolonijama {\em (engl. Ant Colony Optimization, ACO)},
 	\item Optimizacija kolonijom pčela {\em (engl. Bee Colony Optimization, BCO)}.
 \end{itemize}
 
-Nabrojani algoritmi rade nad skupom jedinki - rojem. Elementi ovog skupa nazivaju se čestice. Čestice se na unapred definisan način kreću po prostoru pretraživanja. Njihovo kretanje se usmerava imajući u vidu njihovu trenutnu poziciju, njihovu trenutno najbolju poziciju, kao  najbolju poziciju čitavog roja. Na ovaj način stvara se model koji je prilagođen računaru, kao i potrebama određenih zadataka. 
+Nabrojani algoritmi rade nad skupom jedinki, rojem. Elementi ovog skupa nazivaju se čestice. Čestice se na unapred definisan način kreću po prostoru pretrage. Njihovo kretanje se usmerava imajući u vidu njihovu trenutnu poziciju, njihovu trenutno najbolju poziciju, kao i najbolju poziciju čitavog roja. Na ovaj način stvara se model koji je prilagođen računaru, kao i potrebama određenih zadataka. 
 Ovaj rad će dati kratak teorijski uvod o kretanju pčela u prirodi, algoritmu koji je iz toga proistekao, kao i primere njegove realne primene.
 
 
 \section{Pčele i strategija}
 \label{subsec: ponasanje}
-Pčele se prema ulozi koje imaju dele na: matice, trutove i radilice. Kako autorima rada u algoritmu stvaranje pčela nije od značaja, akcenat se stavlja na treću vrstu – radilice. Postoje dva tipa radilica: ižviđači (engl. scout bees) i sakupljači (engl. forager bees). 
+Pčele se prema ulozi koje imaju dele na: matice, trutove i radilice. Kako autorima rada u algoritmu stvaranje pčela nije od značaja, akcenat se stavlja na treću vrstu – radilice. Postoje dva tipa radilica: izviđači (engl. scout bees) i sakupljači (engl. forager bees). 
 
 \begin{figure}[h!]
 \begin{center}
@@ -114,7 +116,7 @@ Nemački zoolog Karl Von Frisch je 1973. otkrio da pčele među sobom komunicira
 \begin{itemize}\itemindent50pt%
 \setlength{\labelsep}{10pt}
 	\item migoljenje
-	\item kružni povratak, prvo u jednu, a zatim u drugu stranu
+	\item kružni povratak, prvo u jednu, a zatim u drugu stranu.
 \end{itemize}
 Na ovaj način se kodiraju: smer, udaljenost i kvalitet izvora hrane, a pčele koje nikad nisu napuštale košnicu tačno znaju gde treba da idu.
 
@@ -162,8 +164,8 @@ Optimizacija rojem pčela je zasnovana na analogiji između prirodnog ponašanja
 Postoje 2 osnovna pristupa BCO algoritma:
 \begin{itemize}\itemindent20pt%
 \setlength{\labelsep}{10pt}
-	\item Konstruktivni BCO - zasnovan na koracima izgradnje, gde pčele grade rešenje korak po korak
-	\item BCOi - zasnovan na poboljšanju celovitih rešenja kako bi se dobila što bolja konačna rešenja \cite{bcoalg}
+	\item \textbf{Konstruktivni BCO} - zasnovan na koracima izgradnje, gde pčele grade rešenje korak po korak
+	\item \textbf{BCOi} - zasnovan na poboljšanju celovitih rešenja kako bi se dobila što bolja konačna rešenja \cite{bcoalg}
 \end{itemize}
 
 Potrebno je napraviti koloniju veštačkih pčela koje bi tražile dobra rešenja problema u prostoru pretrage. Kako bi kvalitet dobijenih rešenja bio bolji, pčele sarađuju i razmenjuju informacije. Na ovaj način pčele su skoncentrisane na rešenja koja više obećavaju, te postepeno generišu i poboljšavaju pronađena rešenja (sve dok nije postignut zadati kriterijum zaustavljanja).
@@ -266,7 +268,7 @@ Tabela 1: Primene BCO algoritma od 2001. do 2009. godine
 
 \subsection{Problem trgovačkog putnika}
 \label{subsec:prvaprimena}
-U postavci ovog problema dato je {\em n} gradova i potrebno ih je sve obići, tako da ni u koji grad ne dođemo dva puta, a da dužina ukupnog puta bude što manja. Lučić i Teodorović su ovo pokušali da reše koristeći metod optimizacije kolonijom pčela. Oni su testirali optimizaciju na velikom broju dobro poznatih testova za testiranje performansi {\em (engl. test benches)} kao što su {\em Eil21, BerlinS2, St70} itd\cite{test}. Rezultati testiranja su prikazani u sledećoj tabeli: 
+U postavci ovog problema dato je {\em n} gradova i potrebno ih je sve obići, tako da ni u koji grad ne dođemo dva puta, a da dužina ukupnog puta bude što manja. Lučić i Teodorović su ovo pokušali da reše koristeći metod optimizacije kolonijom pčela. Oni su testirali optimizaciju na velikom broju dobro poznatih testova za testiranje performansi {\em (engl. test benches)} kao što su {\em Eil51, Berlin52, St70} itd\cite{test}. Algoritam je izvršavan na IBM-ovom računaru sa PIII procesorom (533MHz). Rezultati testiranja su prikazani u sledećoj tabeli: 
 
 \begin{center}
 \begin{tabular}{|p{1.2cm}|p{2cm}|p{2cm}|p{1.4cm}|p{1cm}|}
@@ -284,7 +286,7 @@ Pcb442&50783.55&51366.04&1.15\%&4384\\ \hline
 Prl1002&259066.6&267340.7&3.19\%&28101\\ \hline
 \end{tabular}\par
 \bigskip
-Tabela 2: Vrednosti dobijene primenom algoritma
+Tabela 2: Vrednosti dobijene primenom algoritma \cite{test} 
 \end{center}
 Iz tabele može se videti da su najbolje vrednosti, dobijene BCO algoritmom, približne optimalnim vrednostima, kao i da je vreme rada procesora malo. Stoga, može se zaključiti da je BCO dao kvaltetne rezultate.
 
@@ -296,10 +298,10 @@ Deljenje vožnje {\em(engl. ride-sharing)} je jedna od korišćenijih TDM {\em (
 \begin{itemize}\itemindent20pt%
 \setlength{\labelsep}{10pt}
        \item kapacitet vozila (broj ljudi u vozilu)
-       \item dani u nedelji, kada je osoba spremna da učestvuje u deljenju vozila
        \item mesto odakle se kreće za svaki dan u nedelji
        \item krajnja destinacija za svaki dan u nedelji
-       \item vreme željenog polaska i/ili dolaska za svaki dan u nedelji 
+       \item vreme željenog polaska i/ili dolaska za svaki dan u nedelji
+       \item dani u nedelji, kada je osoba spremna da učestvuje u deljenju vozila 
 \end{itemize}
 
 Teodorović i Dell’ Orco želeli su da osmisle rutu i raspored vozila i putnika za celu nedelju, tako da se ukupna dužina putovanja za sve učesnike bude minimalna. Razvili su model koji se oslanja na BCO.
@@ -309,7 +311,9 @@ U ovom slučaju, algoritam je odredio da 96 (= 24*4) od 97 putnika daju najbolju
 
 \section{Zaključak}
 \label{sec:zakljucak}
-Optimizacija kolonijom pčela je metaheuristička metoda inspirisana ponašanjem pčela, kao i najmlađa tehnika koja koristi inteligenciju roja. Predstavljen je opšti algoritam koji se, uz određene mofikacije, može prilagoditi za različite probleme optimizacije u upravljanju, inženjeringu i/ili kontroli. BCO ima mogućnost da, putem razmene informacija i regrutovanja, intenzivnije vrši pretragu u onim regionima prostora rešenja koji više obećavaju. Ipak, BCO nije široko korišćen za rešavanje stvarnih problema.
+U ovom radu predstavljena je optimizacija kolonijom pčela, metaheuristička metoda inspirisana ponašanjem pčela i najmlađa tehnika koja koristi inteligenciju roja. Bavili smo se komunikacijom između pčela i međusobnoj podeli posla u košnici. Posebna pažnja posvećena je samom algoritmu, koji se uz određene modifikacije može prilagoditi za različite probleme optimizacije u upravljanju, inženjeringu ili kontroli. Takođe, ukratko je opisana primena na problem trgovačkog putnika i problem deljenja vozila, sa kojim se svakodnevno susrećemo. BCO ima mogućnost da putem razmene informacija i regrutovanja intenzivnije vrši pretragu u onim regionima prostora rešenja koji više obećavaju. Ipak, nije široko korišćen za rešavanje stvarnih problema.
+
+Zanimljivi aspekti budućeg istraživanja mogu biti homogenost pčela, različiti mehanizmi razmene informacija i različiti mehanizmi saradnje. Takođe, jedna od interesantnih praktičnih primena mogla bi da bude i primena pčelinjeg algoritma na naše elektronske uređaje. Naime, svima nam je dobro poznata situacija u kojoj se mobilni telefon, laptop ili neki drugi uređaj zagrejao ili prestao sa radom usled velikog korišćenja. O rešavanju ovog problema, inspirisan prirodom (tačnije pčelama), govori Ali Abuassal u svom doktorskom radu. Rad možete pronaći na:\\ \url{https://pure.york.ac.uk/portal/en/publications/artificial-bee-colonyinspired-runtime-task-management-for-manycore-systems(83f1aad7-3e26-4609-b0df-03af36d0d330).html}.
 
 \newpage
 \addcontentsline{toc}{section}{Literatura}
