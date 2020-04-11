@@ -79,7 +79,7 @@ Priroda je poslužila kao nadahnuće za mnoštvo naučnih istraživanja. Pored o
 \subsection{Inteligencija roja}
 \label{subsec: inteligencija}
 
-Specijalnu klasu ovakvih algoritama predstavljaju oni koji počivaju na \textbf{inteligenciji roja {\em(engl. Swarm intelligence, SI)}}. Jedan od vodećih eksperata, Eric Bonabeau, definisao je inteligenciju roja kao {\em ,,svaki pokušaj dizajniranja algoritama ili distribuiranih uređaja za rešavanje problema, inspirisanih kolektivnim ponašanjem društvenih kolonija insekata i drugih društava životinja.''}\cite{uvod} Pojam {\em roj} odnosi se na bilo kakvu skupinu interaktivnih agenata/pojedinaca. Pčele su jedan od primera roja. Metafora se lako može proširiti na druge (slične) sisteme: kolonija mrava može se smatrati rojem čiji su agensi mravi; a slično važi za jato ptica. 
+Specijalnu klasu ovakvih algoritama predstavljaju oni koji počivaju na \textbf{inteligenciji roja {\em(engl. Swarm intelligence, SI)}}. Jedan od vodećih eksperata, Eric Bonabeau, definisao je inteligenciju roja kao {\em svaki pokušaj dizajniranja algoritama ili distribuiranih uređaja za rešavanje problema, inspirisanih kolektivnim ponašanjem društvenih kolonija insekata i drugih društava životinja}\cite{uvod}. Pojam {\em roj} odnosi se na bilo kakvu skupinu interaktivnih agenata/pojedinaca. Pčele su jedan od primera roja. Metafora se lako može proširiti na druge (slične) sisteme: kolonija mrava može se smatrati rojem čiji su agensi mravi; a slično važi za jato ptica. 
 Neki algoritmi koji se zasnivaju na inteligenciji roja, odnosno - ponašanju pojedinačnih jedinki unutar određene grupe, su:
 \begin{itemize}\itemindent20pt%
 \setlength{\labelsep}{10pt}
@@ -94,7 +94,7 @@ Ovaj rad će dati kratak teorijski uvod o kretanju pčela u prirodi, algoritmu k
 
 \section{Pčele i strategija}
 \label{subsec: ponasanje}
-Pčele se prema ulozi koje imaju dele na: matice, trutove i radilice. Kako autorima rada u algoritmu stvaranje pčela nije od značaja, akcenat se stavlja na treću vrstu – radilice. Postoje dva tipa radilica: izviđači {\em(engl. scout bees)} i sakupljači {\em(engl. forager bees)}. 
+Pčele se prema ulozi koje imaju dele na: matice, trutove i radilice. Kako autorima rada u algoritmu stvaranje pčela nije od značaja, akcenat se stavlja na treću vrstu – radilice. Postoje dva tipa radilica: izviđači {\em(engl. scout bees)} i sakupljači {\em(engl. forager bees)}\cite{istorijat}. 
 
 \begin{figure}[h!]
 \begin{center}
@@ -138,7 +138,7 @@ Brzina i vreme trajanja plesa je proporcionalno oceni resursa pčele izviđača.
 U periodu 1999-2003, srpski akademici - Panta Lučić i Dušan Teodorović, predstavili su osnovne koncepte optimizacije kolonijom pčela kroz sistem pčela {\em(engl. bee system)} dok su vršili istraživanja u {\em Virginia Tech}\cite{algoritam}. Optimizacija kolonijom pčela uvedena je 2005. godine kao metaheuristika za rešavanje problema uparivanja putovanja. Iste godine su Drias i
 Yahi modifikovali algoritam optimizacije rojem pčela {\em(engl. bee swarm optimization)} za
 problem MAX-W-SAT {\em(engl. maximum weighted satisfiability problem)}. Takođe, D. T. Pham uvodi pčelinji algoritam {\em(engl. bees algorithm)} koji kombinuje
-pretraživanje susedstva i nasumično pretraživanje.\cite{istorijat} Dok računarski inženjer D. Karaboga uvodi algoritam veštačke kolonije pčela {\em(engl. artificial bee colony, ABC)} prvenstveno
+pretraživanje susedstva i nasumično pretraživanje\cite{istorijat}. Dok računarski inženjer D. Karaboga uvodi algoritam veštačke kolonije pčela {\em(engl. artificial bee colony, ABC)} prvenstveno
 namenjen numeričkoj optimizaciji.
 
 
@@ -221,15 +221,19 @@ Najbolje pronađeno rešenje se daje kao konačno. To rešenje i globalno rešen
 
 Nakon završetka leta unapred, svaka pčela odlučuje da li će ostati verna prethodno pronađenom rešenju ili ne. Ova odluka zavisi od trenutnog kvaliteta rešenja pčele u odnosu na rešenja ostalih pčela. Verovatnoća da je pčela {\em i} lojalna svom prethodnom parcijalnom/celokupnom rešenju, na početku novog leta unapred, opisana je formulom:\\
 
-$p_i^{u+1}=e^{-\frac{O_{max}-O_i}{u}}$ \hfill (*)\\                             
-
-$O_i$ - normalizovana vrednost funkcije parcijalnog/celokupnog rešenja
+{\centerline{$p_i^{u+1}=e^{-\frac{O_{max}-O_i}{u}}$} \hfill (*)}\\                             
+\begin{itemize}
+\item$O_i$ - normalizovana vrednost funkcije parcijalnog/celokupnog rešenja
 \item $O_{max}$ - maksimalna vrednost svih normalizovanih
-\item u - brojač letova unapred (1, 2, ..., N)\\
+\item u - brojač letova unapred (1, 2, ..., N)
+\end{itemize}
+
      U zavisnosti da li nam treba minimalna ili maksimalna funkcija, normalizacija 
 se izvodi na sledeći način:
-\item$O_i=\frac{C_{max}-C_i}{C_{max}-C_{min}}$ za minimizaciju\\
-\item$O_i=\frac{C_i-C_{max}}{C_{max}-C_{min}}$ za maksimizaciju\\
+\begin{itemize}
+\item$O_i=\frac{C_{max}-C_i}{C_{max}-C_{min}}$ za minimizaciju
+\item$O_i=\frac{C_i-C_{max}}{C_{max}-C_{min}}$ za maksimizaciju
+\end{itemize}
 gde $C_i$ označava ciljnu vrednost funkcije i-tog pčelinjeg rešenja. \\
 
 Lojalnost pčele zavisi od formule (*), kao i generatora slučajnih brojeva. Ako je slučajni broj manji od izračunate vrednosti, pčela ostaje pri svom rešenju. U suprotnom, neopredeljena je\cite{algoritam}.
@@ -240,7 +244,7 @@ Lojalnost pčele zavisi od formule (*), kao i generatora slučajnih brojeva. Ako
 
 Za svaku neopredeljenu pčelu, treba odrediti kog regruta će slediti. Pritom, uzima u obzir kvalitet reklamiranih rešenja. Verovatnoća da će i-to parcijalno/celokupno rešenje izabrati neopredeljene pčele je: \\
 
-$p_i = \frac{Q_i}{\sum_{k=1}^{R}(Q_k)},	i = 1, 2, . . . R$ \\
+\centerline{$p_i = \frac{Q_i}{\sum_{k=1}^{R}(Q_k)},	    i = 1, 2, . . . R$}
 
 Gde je {\em $Q_k$} normalizovana vrednost funkcije cilja k-tog reklamiranog rešenja. {\em R} je broj regrutera. Svaka neopredeljena pčela se pridružuje jednom od regrutera preko ruleta\cite{bcoalg}.
 
@@ -275,12 +279,12 @@ Tabela 2: Vrednosti dobijene primenom algoritma \cite{test}
 \begin{tabular}{|p{1.2cm}|p{2cm}|p{2cm}|p{1.4cm}|p{1cm}|}
  \hline
 Test & Optimalna vrednost(O) & Najbolja postignuta vrednost pomoću BCO algoritma(B)& (B-O)/O (\%) &CPU (s) \\ \hline
-Eil51&428.87&428.87&0&29\\ \hline
-Berlin52&7544.366&7544.366&0&0\\ \hline
-St70&677.11&677.11&0&7\\ \hline
-Pr76&108159&108159&0&2\\ \hline
-Kroa100&21285.4&21285.4&0&10\\ \hline
-Eil101&640.21&640.21&0&61\\ \hline
+Eil51&428.87&{\textbf{428.87}}&0&29\\ \hline
+Berlin52&7544.366&{\textbf{7544.366}}&0&0\\ \hline
+St70&677.11&{\textbf{677.11}}&0&7\\ \hline
+Pr76&108159&{\textbf{108159}}&0&2\\ \hline
+Kroa100&21285.4&{\textbf{21285.4}}&0&10\\ \hline
+Eil101&640.21&{\textbf{640.21}}&0&61\\ \hline
 Tsp225&3859&3899.9&1.06\%&11651\\ \hline
 A280&2586.77&2608.33&0.83\%&6270\\ \hline
 Pcb442&50783.55&51366.04&1.15\%&4384\\ \hline
