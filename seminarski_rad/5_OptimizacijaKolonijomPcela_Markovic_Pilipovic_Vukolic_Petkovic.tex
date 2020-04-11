@@ -107,7 +107,7 @@ Pčele se prema ulozi koje imaju dele na: matice, trutove i radilice. Kako autor
 
 Izviđači konstantno pretražuju okruženje tražeći nove izvore nektara. Kreću se nasumično u okolini košnice, procenjujući vrednost resursa na koje naiđu. Kada pronađu izvor hrane, vraćaju se u košnicu, odlaze u deo koji se naziva ,,podijum za igru'' i izvode pčelinji ples, prikazan na slici \ref{fig:pcela2}. Pomoću ovog plesa objašnjavaju drugim pčelama put do novog izvora hrane. Nakon toga, one se vraćaju na izvor, ali sada u pratnji drugih pčela. Broj pčela koji će im se pridružiti zavisi od kvaliteta poruke koju prenose. Zahvaljujući ovom procesu, kolonija je u stanju da se fokusira samo na najvrednije izvore hrane.
 
-Prirodno se nameće da je broj sakupljača mnogo veći od broja izviđača. Sakupljači na osnovu izvedenog plesa odlučuju da li će poći do izvora hrane ili ne. Zainteresovane pčele kreću na put. Takođe, pčela izviđač je, osim putanje, prenela i miris cveta na kom je bila, čime sakupljači znaju da se nalaze na pravom putu.
+Prirodno se nameće da je broj sakupljača (na slici \ref{fig:pcela1}) mnogo veći od broja izviđača. Sakupljači na osnovu izvedenog plesa odlučuju da li će poći do izvora hrane ili ne. Zainteresovane pčele kreću na put. Takođe, pčela izviđač je, osim putanje, prenela i miris cveta na kom je bila, čime sakupljači znaju da se nalaze na pravom putu.
 
 \subsection{Pčelinji ples}
 \label{subsec:pcelinji ples}
@@ -194,7 +194,7 @@ do:
     		    	Odrediti lojalnost na osnovu pravila ruleta
     		    	trenutne pcele i;
 		    (d) for (i = 0; i < B; i++):
-		       		Ako pceli i kojoj nije dodeljeno resenje, 
+		       		Ako pceli nije dodeljeno resenje, 
 		       		pravilom ruleta izaberi resenje;
     (3) Uporedi sva resenja i izaberi najbolje
         Azuriraj x_best i f(x_best) dok kriterijum zaustavljanja
@@ -250,6 +250,7 @@ Ovaj algoritam našao je mnoge primene u inžinjerstvu: optimizacija klaster sis
 U narednoj tabeli su nabrojani problemi koje su naučnici rešavali pomoću optimizacije kolonijom pčela.
 
 \begin{center}
+Tabela 1: Primene BCO algoritma od 2001. do 2009. godine
 \begin{tabular}{|p{1cm}|p{3cm}|p{5cm}|}
  \hline
 Godina & Autori & Primena \\ \hline
@@ -263,7 +264,6 @@ Godina & Autori & Primena \\ \hline
 2009& Davidović, Teodorović i Šelmić & Statičko zakazivanje nezavisnih zadataka kod homogenih višeprocesorskih sistema\\ \hline
 \end{tabular}\par
 \bigskip
-Tabela 1: Primene BCO algoritma od 2001. do 2009. godine
 \end{center}
 
 \subsection{Problem trgovačkog putnika}
@@ -271,6 +271,7 @@ Tabela 1: Primene BCO algoritma od 2001. do 2009. godine
 U postavci ovog problema dato je {\em n} gradova i potrebno ih je sve obići, tako da ni u koji grad ne dođemo dva puta, a da dužina ukupnog puta bude što manja. Lučić i Teodorović su ovo pokušali da reše koristeći metod optimizacije kolonijom pčela. Oni su testirali optimizaciju na velikom broju dobro poznatih testova za testiranje performansi {\em (engl. test benches)} kao što su {\em Eil51, Berlin52, St70} itd\cite{test}. Algoritam je izvršavan na IBM-ovom računaru sa PIII procesorom (533MHz). Rezultati testiranja su prikazani u sledećoj tabeli: 
 
 \begin{center}
+Tabela 2: Vrednosti dobijene primenom algoritma \cite{test} 
 \begin{tabular}{|p{1.2cm}|p{2cm}|p{2cm}|p{1.4cm}|p{1cm}|}
  \hline
 Test & Optimalna vrednost(O) & Najbolja postignuta vrednost pomoću BCO algoritma(B)& (B-O)/O (\%) &CPU (s) \\ \hline
@@ -286,7 +287,7 @@ Pcb442&50783.55&51366.04&1.15\%&4384\\ \hline
 Prl1002&259066.6&267340.7&3.19\%&28101\\ \hline
 \end{tabular}\par
 \bigskip
-Tabela 2: Vrednosti dobijene primenom algoritma \cite{test} 
+
 \end{center}
 Iz tabele može se videti da su najbolje vrednosti, dobijene BCO algoritmom, približne optimalnim vrednostima, kao i da je vreme rada procesora malo. Stoga, može se zaključiti da je BCO dao kvaltetne rezultate.
 
@@ -304,7 +305,7 @@ Deljenje vožnje {\em(engl. ride-sharing)} je jedna od korišćenijih TDM {\em (
        \item dani u nedelji, kada je osoba spremna da učestvuje u deljenju vozila 
 \end{itemize}
 
-Teodorović i Dell’ Orco želeli su da osmisle rutu i raspored vozila i putnika za celu nedelju, tako da se ukupna dužina putovanja za sve učesnike bude minimalna. Razvili su model koji se oslanja na BCO.
+Teodorović i Dell’ Orco želeli su da osmisle rutu i raspored vozila i putnika za celu nedelju, tako da ukupna dužina putovanja za sve učesnike bude minimalna. Razvili su model koji se oslanja na BCO.
 Ovaj model testiran je na uzorku vozila koja su kretali iz malog grada u Italiji - Trane, do mesta Bari. Učestvovalo je 97 putnika. Kapacitet svakog vozila bio je 4 putnika.
 
 U ovom slučaju, algoritam je odredio da 96 (= 24*4) od 97 putnika daju najbolju putanju. Ne postoji standardni metod u literaturi za određivanje najbolje metode za optimalno deljenje vožnje. Ovo je bio samo pokušaj da se razvije metodologija koja bi mogla da reši ovaj problem\cite{voznja}.
@@ -313,8 +314,7 @@ U ovom slučaju, algoritam je odredio da 96 (= 24*4) od 97 putnika daju najbolju
 \label{sec:zakljucak}
 U ovom radu predstavljena je optimizacija kolonijom pčela, metaheuristička metoda inspirisana ponašanjem pčela i najmlađa tehnika koja koristi inteligenciju roja. Bavili smo se komunikacijom između pčela i međusobnoj podeli posla u košnici. Posebna pažnja posvećena je samom algoritmu, koji se uz određene modifikacije može prilagoditi za različite probleme optimizacije u upravljanju, inženjeringu ili kontroli. Takođe, ukratko je opisana primena na problem trgovačkog putnika i problem deljenja vozila, sa kojim se svakodnevno susrećemo. BCO ima mogućnost da putem razmene informacija i regrutovanja intenzivnije vrši pretragu u onim regionima prostora rešenja koji više obećavaju. Ipak, nije široko korišćen za rešavanje stvarnih problema.
 
-Zanimljivi aspekti budućeg istraživanja mogu biti homogenost pčela, različiti mehanizmi razmene informacija i različiti mehanizmi saradnje. Takođe, jedna od interesantnih praktičnih primena mogla bi da bude i primena pčelinjeg algoritma na naše elektronske uređaje. Naime, svima nam je dobro poznata situacija u kojoj se mobilni telefon, laptop ili neki drugi uređaj zagrejao ili prestao sa radom usled velikog korišćenja. O rešavanju ovog problema, inspirisan prirodom (tačnije pčelama), govori Ali Abuassal u svom doktorskom radu. \\Rad možete pronaći na:
-\url{https://pure.york.ac.uk/portal/en/publications/artificial-bee-colonyinspired-runtime-task-management-for-manycore-systems(83f1aad7-3e26-4609-b0df-03af36d0d330).html}.
+Zanimljivi aspekti budućeg istraživanja mogu biti homogenost pčela, različiti mehanizmi razmene informacija i različiti mehanizmi saradnje. Takođe, jedna od interesantnih praktičnih primena mogla bi da bude i primena pčelinjeg algoritma na naše elektronske uređaje. Naime, svima nam je dobro poznata situacija u kojoj se mobilni telefon, laptop ili neki drugi uređaj zagrejao ili prestao sa radom usled velikog korišćenja. O rešavanju ovog problema, inspirisan prirodom (tačnije pčelama), govori Ali Abuassal u svom doktorskom radu (za znatiželjne, link ka ovom radu dat je u dodatku).
 
 \newpage
 \addcontentsline{toc}{section}{Literatura}
@@ -322,6 +322,9 @@ Zanimljivi aspekti budućeg istraživanja mogu biti homogenost pčela, različit
 \bibliography{seminarski} 
 \bibliographystyle{plain}
 
-
+\appendix
+\section{Dodatak}
+Za one koji žele da znaju više, doktorski rad Ali Abuassala možete pronaći na:
+\url{https://pure.york.ac.uk/portal/en/publications/artificial-bee-colonyinspired-runtime-task-management-for-manycore-systems(83f1aad7-3e26-4609-b0df-03af36d0d330).html}.
 
 \end{document}
