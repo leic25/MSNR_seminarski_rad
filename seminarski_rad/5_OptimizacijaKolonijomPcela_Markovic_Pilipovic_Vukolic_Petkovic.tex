@@ -79,7 +79,7 @@ Priroda je poslužila kao nadahnuće za mnoštvo naučnih istraživanja. Pored o
 \subsection{Inteligencija roja}
 \label{subsec: inteligencija}
 
-Specijalnu klasu ovakvih algoritama predstavljaju oni koji počivaju na \textbf{inteligenciji roja (engl. Swarm intelligence, SI)}. Jedan od vodećih eksperata, Eric Bonabeau, definisao je inteligenciju roja kao {\em ,,svaki pokušaj dizajniranja algoritama ili distribuiranih uređaja za rešavanje problema, inspirisanih kolektivnim ponašanjem društvenih kolonija insekata i drugih društava životinja.''}\cite{uvod} Pojam {\em roj} odnosi se na bilo kakvu skupinu interaktivnih agenata/pojedinaca. Primer roja su pčele. Metafora se lako može proširiti na druge (slične) sisteme: kolonija mrava može se smatrati rojem čiji su agensi mravi; a slično važi za jato ptica. 
+Specijalnu klasu ovakvih algoritama predstavljaju oni koji počivaju na \textbf{inteligenciji roja {\em(engl. Swarm intelligence, SI)}}. Jedan od vodećih eksperata, Eric Bonabeau, definisao je inteligenciju roja kao {\em ,,svaki pokušaj dizajniranja algoritama ili distribuiranih uređaja za rešavanje problema, inspirisanih kolektivnim ponašanjem društvenih kolonija insekata i drugih društava životinja.''}\cite{uvod} Pojam {\em roj} odnosi se na bilo kakvu skupinu interaktivnih agenata/pojedinaca. Pčele su jedan od primera roja. Metafora se lako može proširiti na druge (slične) sisteme: kolonija mrava može se smatrati rojem čiji su agensi mravi; a slično važi za jato ptica. 
 Neki algoritmi koji se zasnivaju na inteligenciji roja, odnosno - ponašanju pojedinačnih jedinki unutar određene grupe, su:
 \begin{itemize}\itemindent20pt%
 \setlength{\labelsep}{10pt}
@@ -94,7 +94,7 @@ Ovaj rad će dati kratak teorijski uvod o kretanju pčela u prirodi, algoritmu k
 
 \section{Pčele i strategija}
 \label{subsec: ponasanje}
-Pčele se prema ulozi koje imaju dele na: matice, trutove i radilice. Kako autorima rada u algoritmu stvaranje pčela nije od značaja, akcenat se stavlja na treću vrstu – radilice. Postoje dva tipa radilica: izviđači (engl. scout bees) i sakupljači (engl. forager bees). 
+Pčele se prema ulozi koje imaju dele na: matice, trutove i radilice. Kako autorima rada u algoritmu stvaranje pčela nije od značaja, akcenat se stavlja na treću vrstu – radilice. Postoje dva tipa radilica: izviđači {\em(engl. scout bees)} i sakupljači {\em(engl. forager bees)}. 
 
 \begin{figure}[h!]
 \begin{center}
@@ -112,7 +112,7 @@ Prirodno se nameće da je broj sakupljača (na slici \ref{fig:pcela1}) mnogo ve�
 \subsection{Pčelinji ples}
 \label{subsec:pcelinji ples}
 
-Nemački zoolog Karl Von Frisch je 1973. otkrio da pčele među sobom komuniciraju plesom (engl. waggle dance). Na tkzv. ,,plesnom podijumu'' u košnici izviđači prenose poruku u dve faze:
+Nemački zoolog Karl Von Frisch je 1973. otkrio da pčele među sobom komuniciraju plesom {\em(engl. waggle dance)}. Na tkzv. ,,plesnom podijumu'' u košnici izviđači prenose poruku u dve faze:
 \begin{itemize}\itemindent50pt%
 \setlength{\labelsep}{10pt}
 	\item migoljenje
@@ -135,10 +135,10 @@ Najsloženiji podatak je {\em smer}. Pčele koriste položaj Sunca, odnosno, uga
 Brzina i vreme trajanja plesa je proporcionalno oceni resursa pčele izviđača. Drugi izviđači takođe mogu opisivati isti izvor nektara. {\em Kvalitet} je veći što je veći broj pčela koje oglašavaju za jedan isti izvor, a samim tim sa njima će poći veći broj sakupljača\cite{bcoalg}. Dokle god se smatraju vrednim, izvori hrane će "reklamirati" pčele sakupljači kroz ples u košnici. Novi regruti mogu takođe učestvovati u plesu i na taj način pozivati što više novih pčela da se priključe sakupljanju. 
 
 \section{Istorija algoritma}
-U periodu 1999-2003, srpski akademici - Panta Lučić i Dušan Teodorović, predstavili su osnovne koncepte optimizacije kolonijom pčela (engl. bee colony optimization, BCO) kroz sistem pčela (engl. bee system) dok su vršili istraživanja u {\em Virginia Tech}\cite{algoritam}. Optimizacija kolonijom pčela uvedena je 2005. godine kao metaheuristika za rešavanje problema uparivanja putovanja. Iste godine su Drias i
-Yahi modifikovali algoritam optimizacije rojem pčela (engl. bee swarm optimization) za
-problem MAX-W-SAT (engl. maximum weighted satisfiability problem). Takođe, D. T. Pham uvodi pčelinji algoritam (engl. bees algorithm) koji kombinuje
-pretraživanje susedstva i nasumično pretraživanje.\cite{istorijat} Dok računarski inženjer D. Karaboga uvodi algoritam veštačke kolonije pčela (engl. artificial bee colony, ABC) prvenstveno
+U periodu 1999-2003, srpski akademici - Panta Lučić i Dušan Teodorović, predstavili su osnovne koncepte optimizacije kolonijom pčela kroz sistem pčela {\em(engl. bee system)} dok su vršili istraživanja u {\em Virginia Tech}\cite{algoritam}. Optimizacija kolonijom pčela uvedena je 2005. godine kao metaheuristika za rešavanje problema uparivanja putovanja. Iste godine su Drias i
+Yahi modifikovali algoritam optimizacije rojem pčela {\em(engl. bee swarm optimization)} za
+problem MAX-W-SAT {\em(engl. maximum weighted satisfiability problem)}. Takođe, D. T. Pham uvodi pčelinji algoritam {\em(engl. bees algorithm)} koji kombinuje
+pretraživanje susedstva i nasumično pretraživanje.\cite{istorijat} Dok računarski inženjer D. Karaboga uvodi algoritam veštačke kolonije pčela {\em(engl. artificial bee colony, ABC)} prvenstveno
 namenjen numeričkoj optimizaciji.
 
 
@@ -154,7 +154,7 @@ Pčelinji algoritam je metod pretrage koji oponaša kolonije pčela prilikom pot
 \end{figure}
 U svojoj osnovnoj verziji izvršava pretraživanje susedstva u kombinaciji sa globalnim pretraživanjem, i može se upotrebiti i za kombinatornu i za kontinuiranu optimizaciju. Koristi populaciju ageansa, odnosno veštačkih pčela, kako bi uzorkovao prostor rešenja\cite{bcoalg}. Pčele izviđači nasumično traže regione visoke funkcije prilagođenosti (globalna pretraga). Najuspešniji izviđači regrutuju promenljiv broj pčela koje tragaju za hranom kako bi pretraživali u okolini najboljih rešenja (lokalna pretraga).
 Ciklusi globalne i lokalne pretrage ponavljaju se dok se ne otkrije prihvatljivo rešenje ili ne prođe određeni broj iteracija. Efikasnost ovog algoritma se pokazala u mnogim istraživanjima. 
-Među najpoznatijim pčelinjim algoritmima, za optimizacione probleme, nalazi se \textbf{BCO (engl. Bee Colony Optimization)}.
+Među najpoznatijim pčelinjim algoritmima, za optimizacione probleme, nalazi se \textbf{BCO}.
 Osnovni koraci dati su dijagramom na slici \ref{fig:dij}.
 
 \subsection{BCO algoritam}
