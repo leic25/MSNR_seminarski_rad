@@ -66,7 +66,7 @@ lea.bela.97@gmail.com, beka.pilipovic@gmail.com}
 \maketitle
 
 \abstract{
-Način kretanja insekata i njihovo zujanje čoveku je zanimljivo za posmatranje od malih nogu. Insekti su vremenom našli način da dođu do hrane brže i efikasnije, a čovek je došao na ideju da njihovo kretanje pretvori u algoritam koji mu može pomoći za rešavanje mnogih problema. U ovom radu videćemo kojim to insektima je čovek bio inspirisan i zbog čega su pčele upravo te koje su privlačile pažnju eksperata. Iz posmatranja roja pčela nastao je algoritam optimizacije kolonijom pčela (BCO), najpoznatiji pčelinji algoritam. Način komunikacije između pčela je posebno zanimljiv, ali i ključan za optimizaciju puta pčela do nektara. Ovaj algoritam iskorišćen je u potpunosti ili modifikovan za rešavanje mnogih problema. Neki od tih problema, kao što su problem trgovačkog putnika i problem deljenja vozila, obrađeni su u ovom radu.
+Kretanje insekata i njihovo zujanje čoveku je zanimljivo za posmatranje od malih nogu. Insekti su vremenom našli način da dođu do hrane brže i efikasnije, a čovek je došao na ideju da njihovo kretanje pretvori u algoritam za rešavanje mnogih problema. Posmatranjem roja pčela nastao je algoritam optimizacije kolonijom pčela, jedan od poznatijih pčelinjih algoritama. Optimizacija kolonijom pčela utemeljena je na sličnosti između ponašanja pčela u potrazi za nektarom i optimizacionih algoritama u potrazi za optimumom. Predstavlja metaheuristiku je zasnovanu na pretraživanju populacije. Algoritam je iskorišćen u potpunosti ili modifikovan za rešavanje mnogih problema. Neki od tih problema, kao što su problem trgovačkog putnika i problem deljenja vozila, obrađeni su u ovom radu.
 \tableofcontents
 
 \newpage
@@ -83,7 +83,7 @@ Specijalnu klasu ovakvih algoritama predstavljaju oni koji počivaju na \textbf{
 Neki algoritmi koji se zasnivaju na inteligenciji roja, odnosno - ponašanju pojedinačnih jedinki unutar određene grupe, su:
 \begin{itemize}\itemindent20pt%
 \setlength{\labelsep}{10pt}
-	\item Optimizacija rojevima čestica {\em(engl. Particle Swarm Optimization, PSO)},
+	\item Optimizacija rojevima čestica {\em(engl. Particle Swarm Optimization, PSO)} \cite{bcoalg},
  	\item Optimizacija mravljim kolonijama {\em (engl. Ant Colony Optimization, ACO)},
 	\item Optimizacija kolonijom pčela {\em (engl. Bee Colony Optimization, BCO)}.
 \end{itemize}
@@ -105,7 +105,7 @@ Pčele se prema ulozi koje imaju dele na: matice, trutove i radilice. Kako autor
 \label{fig:pcela1}
 \end{figure}
 
-Izviđači konstantno pretražuju okruženje tražeći nove izvore nektara. Kreću se nasumično u okolini košnice, procenjujući vrednost resursa na koje naiđu. Kada pronađu izvor hrane, vraćaju se u košnicu, odlaze u deo koji se naziva ,,podijum za igru'' i izvode pčelinji ples, prikazan na slici \ref{fig:pcela2}. Pomoću ovog plesa objašnjavaju drugim pčelama put do novog izvora hrane. Nakon toga, one se vraćaju na izvor, ali sada u pratnji drugih pčela. Broj pčela koji će im se pridružiti zavisi od kvaliteta poruke koju prenose. Zahvaljujući ovom procesu, kolonija je u stanju da se fokusira samo na najvrednije izvore hrane.
+Izviđači konstantno pretražuju okruženje tražeći nove izvore nektara. Kreću se nasumično u okolini košnice, procenjujući vrednost resursa na koje naiđu. Kada pronađu izvor hrane, vraćaju se u košnicu, odlaze u deo koji se naziva ,,podijum za igru'' i izvode pčelinji ples \cite{plesknjiga}, prikazan na slici \ref{fig:pcela2}. Pomoću ovog plesa objašnjavaju drugim pčelama put do novog izvora hrane. Nakon toga, one se vraćaju na izvor, ali sada u pratnji drugih pčela. Broj pčela koji će im se pridružiti zavisi od kvaliteta poruke koju prenose. Zahvaljujući ovom procesu, kolonija je u stanju da se fokusira samo na najvrednije izvore hrane.
 
 Prirodno se nameće da je broj sakupljača (na slici \ref{fig:pcela1}) mnogo veći od broja izviđača. Sakupljači na osnovu izvedenog plesa odlučuju da li će poći do izvora hrane ili ne. Zainteresovane pčele kreću na put. Takođe, pčela izviđač je, osim putanje, prenela i miris cveta na kom je bila, čime sakupljači znaju da se nalaze na pravom putu.
 
@@ -160,7 +160,6 @@ Osnovni koraci dati su dijagramom na slici \ref{fig:dij}.
 \subsection{BCO algoritam}
 \label{subsec:bco}
 Optimizacija rojem pčela je zasnovana na analogiji između prirodnog ponašanja pčela u potrazi za nektarom i ponašanja optimizacionih algoritama u potrazi za optimumom\cite{bcoalg}. Ova metaheuristika je zasnovana na pretraživanju populacije. 
-
 Postoje 2 osnovna pristupa BCO algoritma:
 \begin{itemize}\itemindent20pt%
 \setlength{\labelsep}{10pt}
@@ -177,30 +176,31 @@ Opšti algoritam dat je u nastavku:
 	     u jednoj BCO iteraciji
 // Inicijalizacija: Dodeljuju se vrednosti promenljivama B i N, 
 		 		         odredjuje se kriterijum zaustavljanja
-do:
+Radi:
     (1) Dodeli prazno resenje svakoj pceli
-    (2) for (k = 0; k < N; k++):
+    (2) Za svako k od 0 do N:
     		// let unapred
-    		(a) for (i = 0; i < B; i++):
-    			    for (j = 0; j < f(N); j++):
-    					 (i)  Proceni sve mogucnosti;
+    		(a) Za svako i od 0 do B:
+    			    Za svako j od 0 do f(N):
+    					 (i)  Proceni sve mogucnosti
     					 (ii) Izaberi naredni korak koristeci pravila 
-    					      ruleta;
+    					      ruleta
+    		
     		// let unazad
-    		(b) for (i = 0; i < B; i++):
+    		(b) Za svako i od 0 do B:
     			    Proceni kvalitet (parcijalnog/celokupnog) 
-    			    resenja	za trenutnu pcelu;
-    		(c) for (i = 0; i < B; i++):  
+    			    resenja	za trenutnu pcelu
+    		(c) Za svako i od 0 do B:  
     		    	Odrediti lojalnost na osnovu pravila ruleta
-    		    	trenutne pcele i;
-		    (d) for (i = 0; i < B; i++):
+    		    	trenutne pcele i
+		    (d) Za svako i od 0 do B:
 		       		Ako pceli nije dodeljeno resenje, 
-		       		pravilom ruleta izaberi resenje;
+		       		pravilom ruleta izaberi resenje
     (3) Uporedi sva resenja i izaberi najbolje
         Azuriraj x_best i f(x_best) dok kriterijum zaustavljanja
         ne bude zadovoljen
     
-while (nije zadovoljen kriterijum)
+dok god (nije zadovoljen kriterijum)
 \end{lstlisting}
 
 Populacija se sastoji od {\em B} veštačkih pčela. Svaka od njih zadužena je za proizvodnju jednog rešenja. Različite putanje koje pčele prelaze predstavljaju različita rešenja. Algoritam ima dve faze - \textbf{let unapred} i \textbf{let unazad}. Navedene faze dešavaju se naizmenično\cite{algoritam}.
